@@ -2,13 +2,13 @@ BODY.debug * {
   border: 1px solid red;
 }
 BODY * {
-  border: 1px solid white;
+  border: 1px solid rgba(255, 255, 255, 0);
 }
 BODY {
   background: #f1e2df;
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
+  font-family: "Arial", "Helvetica", sans-serif;
 }
 BODY > DIV:first-child {
   overflow: auto;
@@ -52,11 +52,36 @@ CODE {
   padding: 10pt 0 0 20pt;
 }
 
+.logo {
+  color: black;
+  display: flex;
+  font-size: 34px;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.05em;
+  align-items: center;
+}
+.logo > .red {
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
+  background: #F14623;
+  text-align: center;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: white;
+}
+.logo > .tld {
+  font-size: 18px;
+  margin-left: 5px;
+  align-self: flex-end;
+  letter-spacing: 0.025em;
+}
+
 /* on larger screens, have some sections float left */
 @media (min-width: 940px) {
   BODY > DIV:first-child > DIV {
     width: 45%;
-                float: left;
+    float: left;
   }
   BODY > DIV:first-child > DIV:nth-child(2n) {
       clear: left;
