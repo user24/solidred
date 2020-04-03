@@ -1,26 +1,12 @@
 <!DOCTYPE html><!-- valid: http://validator.w3.org/check?uri=http%3A%2F%2Fsolidred.co.uk -->
-<html>
+<html lang="en">
 	<head>
 			<title>Howard Yeend's portfolio at solidRED.co.uk</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
 			<meta name="description" content="Shropshire web developer.">
-			<!--
-
-			Fear not, in the real world I would not be inlining script and style.
-			The whole lot would be minified, gzipped, and cached on the server.
-
-			But this is just a quick single page I whipped up.
-
-			I'll be surprised, confused, and delighted if it ever has to handle any decent traffic.
-
-			And if it does, it will, because all it's serving is a few kb of static html and a tiny PNG.
-
-			-->
 
 			<script>
-				/*jslint browser: true*/
-
 				(function () {
 					"use strict";
 
@@ -49,103 +35,7 @@
 
 			</script>
 
-			<style>
-				BODY.debug * {
-					border: 1px solid red;
-				}
-				BODY * {
-					border: 1px solid white;
-				}
-				BODY {
-					background: #f1e2df;
-					padding: 0;
-					margin: 0;
-  		    font-family: sans-serif;
-				}
-				BODY > DIV:first-child {
-					overflow: auto;
-					background: white;
-			    margin: 0 auto 0 auto;
-			    max-width: 880px;
-			    padding: 60px;
-				}
-				BODY > DIV:first-child > DIV:last-child {
-					padding-bottom: 100pt;
-				}
-				H1 {
-					font-weight: normal;
-					font-size: 16pt;
-					margin-top: 50pt;
-				}
-				A, A:visited {
-					cursor: pointer;
-					text-decoration: none;
-					color: #f12346;
-				}
-				UL, P {
-					margin-left: 40pt;
-				}
-				UL {
-          margin-top: 0;
-					width: 80%;
-					padding-left: 0pt;
-				}
-        LI {
-          list-style-type: none;
-					margin-left: 0;
-					padding-left: 0;
-        }
-				LI:nth-child(n+2) {
-				  margin-top: 1.5em;
-				}
-				CODE {
-					font-family: "Lucida Console", Monaco, monospace;
-					display: block;
-					padding: 10pt 0 0 20pt;
-				}
-			</style>
-
-			<!-- on larger screens, have some sections float left -->
-			<style>
-				@media (min-width: 940px) {
-					BODY > DIV:first-child > DIV {
-						width: 45%;
-                        float: left;
-					}
-          BODY > DIV:first-child > DIV:nth-child(2n) {
-              clear: left;
-          }
-          BODY > DIV:first-child > DIV:nth-child(2n+1) {
-              margin-left: 2em;
-          }
-          BODY > DIV:first-child > DIV:first-child {
-              /* the logo is special */
-              margin-left: 0;
-          }
-				}
-				@media (max-width: 939px) {
-					BODY > DIV:first-child {
-					    max-width: 400px;
-					    padding: 100px;
-					}
-				}
-			</style>
-
-			<!-- on smaller screens, have less padding -->
-			<style>
-				@media (max-width: 560px) {
-					BODY > DIV:first-child {
-					    max-width: 870px;
-						padding: 10pt;
-					}
-					H1 {
-						margin-left: 0;
-					}
-					UL, P {
-						margin-left: 0.5em;
-					}
-				}
-			</style>
+			<link rel="stylesheet" href="panache.css">
 
 	</head>
 	<body>

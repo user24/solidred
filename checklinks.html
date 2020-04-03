@@ -1,0 +1,107 @@
+<html>
+  <head>
+    <title>Amazon Affiliate Code Detector</title>
+    <script>
+      window.onload = function() {
+        var result = document.getElementById('result');
+        var cleaned = document.getElementById('cleaned');
+        document.getElementById('check').addEventListener('click', function() {
+          var url = document.getElementById('url').value;
+          cleaned.style.display = 'none';
+
+          if (url.indexOf('amazon') === -1) {
+            result.className = 'error';
+            result.innerText =
+              'Not an amazon URL! Try following the link and copying it from the address bar.';
+          } else if (url.indexOf('tag=') === -1) {
+            result.className = 'clean';
+            result.innerText = 'Not an affiliate link';
+          } else {
+            result.className = 'affiliate';
+            result.innerText = 'Is an affiliate link';
+
+            // Remove the tag, upgrade to https, and change to smile url.
+            // Will error on IE.
+            var cleanedUrl = new URL(url);
+            cleanedUrl.searchParams.delete('tag');
+            cleanedUrl.searchParams.delete('linkId');
+            cleanedUrl.searchParams.delete('qid');
+            cleanedUrl.searchParams.delete('keywords');
+            cleanedUrl.searchParams.delete('linkCode');
+            cleanedUrl.protocol = 'https:';
+            cleanedUrl.host = cleanedUrl.host.replace('www.', 'smile.');
+
+            cleaned.style.display = 'inline';
+            cleaned.href = cleanedUrl.href;
+          }
+        });
+      };
+    </script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 16pt;
+        margin: 10px;
+      }
+      #url {
+        width: 500px;
+      }
+      #url,
+      #check {
+        padding: 5px;
+        height: 30px;
+      }
+      #cleaned {
+        display: none;
+      }
+      #result {
+        margin-top: 5px;
+        padding: 3px;
+      }
+      .error {
+        color: red;
+      }
+      .affiliate {
+        color: white;
+        background: red;
+      }
+      .clean {
+        color: green;
+      }
+      .tag {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Amazon Affiliate Tag Checker</h2>
+    Paste an amazon URL here and press the Check button<br />
+    <input type="text" id="url" />
+    <input type="button" id="check" value="Check" />
+    <div id="result"></div>
+    <a id="cleaned" target="_blank">Copy this link for a clean version</a
+    ><br /><br />
+    <h3>How to spot affiliate links by eye</h3>
+    Check the URL for <span class="tag">&tag=something</span>. If present, it's
+    an affiliate link.<br /><br />
+    <strong>Example</strong>:
+    http://www.amazon.com/DJI-Mavic-Pro-More-Combo/dp/B01LYNH0BD/ref=as_li_ss_tl?ie=UTF8&qid=1549896817&sr=8-15&keywords=DJI+Mavic+Pro&linkCode=sl1<span
+      class="tag"
+      >&tag=taoutdoors-20</span
+    >&linkId=ec63475b10423975da9e6e69e1f8226a <br /><br />
+    <strong>Cleaned Example</strong> (We've removed the &tag= part)<br />
+    http://www.amazon.com/DJI-Mavic-Pro-More-Combo/dp/B01LYNH0BD/ref=as_li_ss_tl?ie=UTF8&qid=1549896817&sr=8-15&keywords=DJI+Mavic+Pro&linkCode=sl1&linkId=ec63475b10423975da9e6e69e1f8226a
+    <br /><br />
+    <strong>Extra Cleaned Example</strong> (we've stripped all the other
+    gunk)<br />
+    http://www.amazon.com/dp/B01LYNH0BD <br /><br />
+    <strong>Warm Happy Feeling Example</strong> (we've upgraded to https and
+    changed to the charity-supporting smile subdomain)<br />
+    https://smile.amazon.com/dp/B01LYNH0BD<br /><br />
+    The 'clean' version that this tool produces removes the affiliate tag,
+    upgrades to HTTPS and smile, but leaves some of the other gunk as it's a
+    little tricky to reliably remove.<br /><br />
+    <strong>Privacy note:</strong> This tool does not track the URLs pasted to
+    it in any way.
+  </body>
+</html>

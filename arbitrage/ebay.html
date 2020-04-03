@@ -1,0 +1,147 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>eBay Profit Calculator</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="add-to-homescreen/style/addtohomescreen.css">
+  <script src="add-to-homescreen/src/addtohomescreen.min.js"></script>
+  <script src='jqlite.js'></script>
+  <script>
+  var costs = {
+    eBayPercentage: 0.1,
+    payPalFixed: 0.2,
+    payPalPercentage: 0.034
+    };
+
+    function calcProfit() {
+      var ebayFees, paypalFees, profit, roi, margin;
+      var $$buyPrice = $$('#buyPrice');
+      var buyPrice = parseFloat($$buyPrice.val());
+      var $$sellPrice = $$('#sellPrice');
+      var sellPrice = parseFloat($$sellPrice.val());
+      var postagePrice = parseFloat($$('#postageActualPrice').val());
+
+      if (buyPrice <= 0 || sellPrice <= 0 || isNaN(buyPrice + sellPrice)) {
+        return;
+      }
+
+      var $$ebayFees = $$('#ebayFees');
+      var $$paypalFees = $$('#paypalFees');
+      var $$profit = $$('#profit');
+      var $$roi = $$('#roi');
+      var $$margin = $$('#margin');
+
+      ebayFees = (sellPrice * costs.eBayPercentage);
+      paypalFees = costs.payPalFixed + (sellPrice * costs.payPalPercentage);
+      profit = sellPrice - buyPrice - postagePrice - ebayFees - paypalFees;
+      roi = profit / buyPrice;
+      margin = profit / sellPrice;
+
+      // Convert to £s
+      ebayFees = ebayFees.toFixed(2);
+      paypalFees = paypalFees.toFixed(2);
+      profit = profit.toFixed(2);
+      roi = roi;
+      margin = margin;
+
+      $$ebayFees.val(ebayFees);
+      $$paypalFees.val(paypalFees);
+      $$profit.val(profit);
+      $$roi.val((roi * 100).toFixed(2));
+      $$margin.val((margin * 100).toFixed(2));
+    }
+
+    const setPostagePrice = () => {
+      $$('#postageActualPrice').val($$('#postagePrice').val());
+    };
+
+    $$(function () {
+      setPostagePrice();
+      const events = 'keyup click blur change';
+      $$('#buyPrice, #postagePrice, #sellPrice').on(events, calcProfit);
+      $$('#postagePrice').on(events, () => {
+        setPostagePrice();
+        calcProfit();
+      });
+      calcProfit();
+    });
+  </script>
+</head>
+<body>
+<div class="container">
+  <form class="form-horizontal">
+    <h1>eBay Profit Calc</h1>
+    <div class="form-group">
+      <label for="buyPrice" class="col-sm-2 control-label">Buy &pound;</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="buyPrice" placeholder="Purchase price">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="buyPrice" class="col-sm-2 control-label">Sell &pound;</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id='sellPrice' placeholder="Sale price including P&amp;P">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="buyPrice" class="col-sm-2 control-label">Postage &pound;</label>
+      <div class="col-sm-5">
+        <select id="postagePrice" class="form-control">
+          <option value="0.67">RM 1st Letter</option>
+          <option value="1.01">100g 1st Large Letter</option>
+          <option value="0.79">100g 2nd Large Letter</option>
+          <option value="1.40">250g 1st Large Letter</option>
+          <option value="1.26">250g 2nd Large Letter</option>
+          <option value="1.40">250g 1st Large Letter</option>
+          <option value="1.26">250g 2nd Large Letter</option>
+          <option value="2.60">750g 1st Large Letter</option>
+          <option value="2.22">750g 2nd Large Letter</option>
+          <option value="3.45">1kg RM 1st Small</option>
+          <option selected value="2.95">2kg RM 2nd Small</option>
+          <option value="5.75">RM 1st Medium</option>
+          <option value="5.05">RM 2nd Medium</option>
+          <option value="2.79">Hermes <= 5kg</option>
+        </select>
+      </div>
+      <div class="col-sm-5">
+        <input id="postageActualPrice" class="form-control">
+      </div>
+    </div>
+    <div class="form-group bg-success">
+      <label for="buyPrice" class="col-sm-2 control-label">Profit &pound;</label>
+      <div class="col-sm-10">
+        <input id='profit' class="form-control bg-success" readonly value='0'>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="buyPrice" class="col-sm-2 control-label">ROI %</label>
+      <div class="col-sm-10">
+        <input id='roi' class="form-control" readonly value='0'>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="buyPrice" class="col-sm-2 control-label">Margin %</label>
+      <div class="col-sm-10">
+        <input id='margin'  class="form-control" readonly value='0'>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="buyPrice" class="col-sm-2 control-label">eBay Fees &pound;</label>
+      <div class="col-sm-10">
+        <input id='ebayFees' class="form-control" readonly value='0'>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="buyPrice" class="col-sm-2 control-label">Paypal Fees &pound;</label>
+      <div class="col-sm-10">
+        <input id='paypalFees' class="form-control" readonly value='0'>
+      </div>
+    </div>
+  </form>
+</div>
+<script>
+addToHomescreen();
+</script>
+</body>
+</html>
