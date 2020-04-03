@@ -1,0 +1,155 @@
+<!DOCTYPE html><!-- valid: http://validator.w3.org/check?uri=http%3A%2F%2Fsolidred.co.uk/londonj2014.html -->
+<!--   ___                                      /
+      /      __  __  __  /    *  _    ___  __  /
+     /  __  /   /_  /_  /-   /  / |  /  / /_
+     \___| /   /__ /__ /__  /  /  | /__/ __/  *
+                                   _  /
+         from @user24             /__/
+         http://github.com/user24
+-->
+<html>
+<head>
+    <title>LondonJS 2014 writeup</title>
+    <meta charset="utf-8">
+    <link href='http://fonts.googleapis.com/css?family=PT+Serif+Caption' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="article.css">
+</head>
+<body>
+<div id="body">
+<a href="http://solidred.co.uk"><img src="logo.png" width="222" height="77" alt="solidRED.co.uk"></a>
+<h1>LondonJSConf 2014 writeup</h1>
+
+<p>This is a writeup of the <a href="http://www.londonjsconf.com">LondonJSConf</a> conf in London about JS.</p>
+    
+<p>It's written particularly for people who weren't there, so you can feel like maybe you were :)</p>
+
+<p>First and foremost I want to say a huge thank-you to all the speakers. Getting up in front of the huge crowd of experts that came to LondonJSConf must be as daunting as performing in any west-end show. Moreso in fact, because your scene is a 45 minute solo, with questions afterwards, your character is yourself and you only get one shot at it. So, again, thank-you and well done for conquering both your subjects and nerves. Every single speaker I saw delivered a passionate and well-researched talk, you all did great jobs.</p>
+
+<p>Also massive thanks to the organisers and sponsors; your contribution is often hidden from the public - it's only when things go wrong that we notice you're there at all, and from what I saw you were invisible when we didn't need to know about you and visible when we did. It's a balancing act to give the attendees a feeling of confidence in you and still get the important behind-the-scenes things done, and I think you got it spot on.</p>
+
+<p>I won't pick apart the good and bad points of the conf itself because I think most people will raise the same issues, and over-all there wasn't much to complain about (tldr: wifi, talk descriptions, stick to the plan leroy, don't put an in-depth workshop as the final talk).</p>
+    
+<p>So lets go ahead and review the talks I attended.</p>
+
+    
+<h2>Keynote: The Touch Events</h2>
+    
+<p>By Peter-Paul Koch (<a href="//twitter.com/ppk">@ppk</a>, <a href="http://quirksmode.org/presentations/Spring2014/touchevents_londonjs.pdf">slides.pdf</a>)</p>
+
+<p>PPK of <a href="http://quirksmode.com">Quirksmode</a> fame kicked off with a great talk about interaction events.</p>
+
+<p>Key points:</p>
+
+<ul>
+    <li>If you can, "Stick with Click". Click events work everywhere and aren't going away.</li>
+    <li>Do we really need onMouseDown as well as onTouchStart? What if someone invents a new pointer device, are we going to have to invent a slew of new events for each way of interacting with a page? </li>
+    <li>Microsoft are experimenting with onPointerDown, onPointerMove to consolidate these events. It's where we're probably heading but not quite perfect yet.</li>
+    <li>The data we get from touch events are too raw at the moment.</li>
+    <li>We really want "onPinch", "onZoom" etc. Again Microsoft seem to be the innovators here.</li>
+    <li>Even superstars forget things they knew years ago ;)</li>
+</ul>
+
+<h2>Web Components can do that?!</h2>
+    
+<p>By Addy Osmani (<a href="//twitter.com/addyosmani">@addyosmani</a>, <a href="http://lanyrd.com/2014/londonjsconf/sctxww/">slides &amp; more</a>)</p>
+
+<p>Superquick video if you missed the talk: <a href="http://www.youtube.com/watch?v=j7t4t_6IgXM">Addy Osmani, "Web components: A whirlwind tour" [01:39]</a></p>
+
+<p>Addy presented the case for using Web Components, which I haven't looked into before. I wasn't 100% onboard with the idea but the key points seem to be:</p>
+
+<ul>
+    <li>Web components give us a glimpse of what the web could look like if we redesigned it with a clean slate.</li>
+    <li>Using <a href="http://www.polymer-project.org/‎">polymer</a>, we can extend, package up and share custom HTML elements. It's possible, for instance, to define a <code>&lt;tweet user="user24" num="1" /&gt;</code> tag and define some script and markup to have that behave as a rich collection of standard HTML elements, styled and with JS behaviours.</li>
+    <li>Polymer also leverages in-browser capabilities to provide nice data bindings.</li>
+</ul>
+
+<h2>Supercharging Node with Kraken</h2>
+    
+<p>By Tim Messerschmidt (<a href="//twitter.com/SeraAndroid">@SeraAndroid</a>, <a href="http://www.slideshare.net/paypal/krakenjs">slides</a>)</p>
+
+<p>Tim's talk gave us a convincing overview of how the <a href="http://krakenjs.com">KrakenJS</a> suite combines NodeJS, Express, RequireJS, LESS, DUST, Grunt and more into a cohesive toolset that allows rapid application development in a structured and performant way.</p>
+
+<p>Key features are:</p>
+
+<ul>
+    <li>Lives on top of express, with no per-request performance hit.</li>
+    <li>A clear MVC model.</li>
+    <li>Modular structure so you can pick and choose, eg if you don't want to use LESS.</li>
+    <li>Security.</li>
+    <li>Internationalisation.</li>
+    <li>Templating with DUST.</li>
+    <li>NPM proxy so you can use NPM for internal/private modules, falling back to npmjs.org.</li>
+</ul>
+
+<h2>Leap into the unknown: 3D sensing and browser interaction</h2>
+    
+<p>By Mairead Buchan (<a href="//twitter.com/tiny_m">@tiny_m</a>)</p>
+
+<p>Related demo: <a href="http://www.youtube.com/watch?v=N6hCwjwzUHg">Leapmotion demo</a>.</p>
+
+<p>Mairead gave a nice demo about how we can interface with the <a href="https://www.leapmotion.com/">Leap Motion</a> controller via <a href="https://github.com/leapmotion/leapjs">LeapJS</a>. She manipulated a 3D model using her bare hands, which was pretty cool (think Minority Report but without the gloves). At the moment I'm not convinced that it has broad applications, mainly because you need the Leap device to get it working. Clearly *something* along these lines is coming in the future in terms of web UI though.</p>
+
+<h2>Choosing Objects, or Functions</h2>
+    
+<p>By Tim Ruffles (<a href="//twitter.com/timruffles">@timruffles</a>, <a href="http://timruffles.github.io/you-probably-dont-want-an-object/#/">slides (press space)</a>)</p>
+
+<p>I really enjoyed Tim's talk about the (im)mutability of data and the implication that has on our choice of data structure. I think it was the most philosophical of all the talks. He spoke not about specific libraries or APIs but about the way that we approach code in a more general way. I think this is a really good thing because it has broad appeal and impact.</p>
+
+<p>Key points are hard to distil but here's my best attempt: (edit: I wrote these before he put the slides up)</p>
+
+<ul>
+    <li>HTTP is stateless, so too the web.</li>
+    <li>Most of our JS objects do not *really* have state, they exist for seconds only.</li>
+    <li>In OOP you often end up having to shoehorn things that don't fit into an object.</li>
+    <li>A lot of conceptual objects in JS are really Just A Bunch of Functions with very loose relationships.</li>
+    <li>Why do we so often want to hide raw data away in private members? Data wants to be free.</li>
+    <li>When we abstract data behind getters, we lose the ability to do cool things like map as easily.</li>
+    <li>JS has a lot of functional elements already so maybe you should <a href="http://learnyouahaskell.com">learn you a haskell</a> or (his recommendation) <a href="http://clojure.org/">Clojure</a>.</li>
+</ul>
+
+<h2>Make Your Browser Dance</h2>
+    
+<p>By Ruth John (<a href="//twitter.com/Rumyra">@Rumyra</a>)</p>
+
+<p>Interactive demos: <a href="http://dancing.rumyra.com/">dancing.rumyra.com</a>.</p>
+
+<p>Ruth gave us a couple of really sweet demos about the Web Audio API and VJ-ing. I found it really interesting to see JS in the browser being used for things that once would have (had to) been a compiled executable. I also found it interesting to see browsers being used not for websites with global audience but for extremely local applications like in a club setting. A novel use case to me.</p>
+
+<p>The actual demos were really fun, realtime analysis and reaction to audio input from the mic.</p>
+
+<p>This seems like the sort of technology that has a huge possible number of use-cases, and I'd love to see some serious applications for it (and fun ones too, sure).</p>
+
+<h2>Building multi-device interfaces with the web</h2>
+    
+<p>By Ben Foxall (<a href="//twitter.com/benjaminbenben">@benjaminbenben</a>, <a href="http://www.youtube.com/watch?v=a44gzZtxPNs">video</a>)</p>
+    
+<p>Ben gave a brilliant interactive talk showing off some really novel ways to control websites, a high point was when he manipulated an object on screen using two phones, one in each hand, creating a multi-touch interface across multiple devices. I think his use of audience participation via their phones was a stroke of genius and I think it really made people feel engaged in the talk. I really recommend checking out his <a href="http://www.youtube.com/watch?v=bGX3HVGZKLw">other talks</a> too.</p>
+    
+<p>As with Ruth's talk, this showcased some interesting local-scope uses for web technologies (eg playing pictionary on a main screen while people in the same room make guesses on their phones, all connected to the main device by webRTC). The demos were fun and quirky, but behind them are some serious cutting edge technologies that I'd really like to see used more in production. I think these technologies are hugely powerful and have the potential to revolutionise the way the web is perceived as a platform.</p>
+
+
+<h2>Closing Keynote: /Reg(exp){2}lained/</h2>
+    
+<p>By Lea Verou (<a href="//twitter.com/LeaVerou">@LeaVerou</a>, <a href="http://lea.verou.me/regexplained/slides.html#intro">slides</a>)</p>
+    
+<p>To close, Lea gave us a thorough tutorial in the use of regular expressions. At first I was unenthusiastic because I grok regex fairly well already, and I felt that this talk was more suited to a workshop than an end-of-day keynote, but I did learn a few interesting tricks from it.</p>
+    
+<p>The main point that I took away, I'm afraid, was that regex are hard. Not necessarily in terms of learning the syntax - though that can be offputting - but really in terms of readability, brittleness and suitability. They're opaque, not obvious when wrong and are used for things like date validation when we already have Date.parse. And in a lot of cases they don't even do what they're supposed to. The myriad email regexes floating about should be a canonical example of the inappropriate uses of regex, but we still see people all over stackexchange etc teaching people to use regex for email validation.</p>
+    
+<p>This wasn't a problem with Lea's competence or choice of examples; for me these are problems with regex as a whole... but that's probably a whole other blog post, and so this session was thought-provoking for me, if not in the direction Lea would hope.</p>
+
+<h2>My conclusion</h2>
+    
+<p>As I said in the intro, every one of the speakers was professional, entertaining and put together fascinating, inspiring and informative talks. I really enjoyed my first exposure to LondonJS and I'd certainly recommend it to anyone. Can't wait till next year, well done all!</p>
+    
+<h2>Other perspectives</h2>
+    
+<p>A few other people have written up their thoughts on the conf too, so I thought it'd be nice to link them here so you can read about talks I didn't attend, and get a different side of the story for talks I did.</p>
+    
+<ul>
+    <li><a href="http://blog.mattia-asti.it/london-js-conf-2014/">Mattia Asti</a></li>
+    <li><a href="http://www.richardmccartney.co.uk/london-js-conf-2014/">Richard McCartney</a></li>
+</ul>
+</div>
+</body>
+</html>

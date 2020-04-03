@@ -1,0 +1,98 @@
+BODY {
+    background: #f1e2df;
+    padding: 0;
+    margin: 0;
+    font-size: 14pt;
+    font-family: 'PT Serif Caption', serif;
+}
+#body {
+    overflow: auto;
+    background: white;
+    margin: 0 auto 0 auto;
+    max-width: 880px;
+    padding: 60px;
+    padding-bottom: 200px;
+}
+A {
+    color: #60A9E0;
+    text-decoration: none;
+}
+P {
+    -webkit-transition: background-color 75ms linear;
+    -moz-transition: background-color 75ms linear;
+    -o-transition: background-color 75ms linear;
+    -ms-transition: background-color 75ms linear;
+    transition: background-color 75ms linear;
+}
+P.clicked {
+    background-color: #E8F9FF;
+}
+H2, H3 {
+    font-family: monospace;
+    font-size: 16pt;
+    margin: 0;
+    margin-top: 3em;
+    color: #858C19;
+}
+H2 > A {
+    color: #60A9E0;
+    margin-top: 32pt;
+}
+H3 {
+    font-size: 14pt;
+    text-align: right;
+    color: #D6D6D6;
+}
+H2:before, H3:before {
+    content: "<";
+}
+H2:after, H3:after {
+    content: ">";
+}
+H1 {
+    font-size: 26pt;
+    color: #9C5AB7;
+    margin: 26pt 0;
+}
+@media (max-width: 1024px) {
+    body {
+        font-size: 14pt;
+    }
+    #body {
+        max-width: 800px;
+    }
+    H1 {
+        font-size: 16pt;
+    }
+    H2, H3 {
+        font-size: 12pt;
+    }
+}
+@media (max-width: 768px) {
+    body {
+        font-size: 12pt;
+    }
+    #body {
+        max-width: 550px;
+    }
+    H1 {
+        font-size: 14pt;
+    }
+    H2, H3 {
+        font-size: 10pt;
+    }
+}
+@media (max-width: 200px) {
+    body {
+        font-size: 10pt;
+    }
+    #body {
+        max-width: 190px;
+    }
+    H1 {
+        font-size: 12pt;
+    }
+    H2, H3 {
+        font-size: 8pt;
+    }
+}

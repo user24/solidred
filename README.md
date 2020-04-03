@@ -1,2 +1,2 @@
 # solidred
-my personal site
+My personal website - https://solidred.co.uk
