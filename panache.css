@@ -52,7 +52,7 @@ CODE {
   padding: 10pt 0 0 20pt;
 }
 
-# on larger screens, have some sections float left
+/* on larger screens, have some sections float left */
 @media (min-width: 940px) {
   BODY > DIV:first-child > DIV {
     width: 45%;
@@ -76,7 +76,7 @@ CODE {
   }
 }
 
-# on smaller screens, have less padding
+/* on smaller screens, have less padding */
 @media (max-width: 560px) {
   BODY > DIV:first-child {
       max-width: 870px;
