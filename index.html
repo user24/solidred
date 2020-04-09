@@ -1,111 +1,101 @@
 <!DOCTYPE html><!-- valid: http://validator.w3.org/check?uri=http%3A%2F%2Fsolidred.co.uk -->
 <html lang="en">
-	<head>
-			<title>Howard Yeend's portfolio at solidRED.co.uk</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-			<meta name="description" content="Shropshire web developer.">
+<head>
+	<title>Howard Yeend's portfolio at solidRED.co.uk</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Shropshire web developer.">
 
-			<script>
-				(function () {
-					"use strict";
+	<script>
+		(function () {
+			"use strict";
 
-					function on(element, event, listener) {
-						if (window.attachEvent) {
-							element.attachEvent(event, listener);
-						} else if (window.addEventListener) {
-							element.addEventListener(event, listener, true);
-						}
+			function on(element, event, listener) {
+				if (window.attachEvent) {
+					element.attachEvent(event, listener);
+				} else if (window.addEventListener) {
+					element.addEventListener(event, listener, true);
+				}
+			}
+
+			window.onload = function () {
+				var body = document.getElementsByTagName("body")[0];
+
+				on(document.getElementById("debug"), "click", function hasClicked() {
+					if (body.className === "") {
+						body.className = "debug";
+					} else {
+						body.className = "";
 					}
+				});
+			};
+		}());
+	</script>
 
-					window.onload = function () {
-						var body;
-						body = document.getElementsByTagName("body")[0];
+	<link rel="stylesheet" href="panache.css">
 
-						on(document.getElementById("debug"), "click", function hasClicked() {
+</head>
+<body>
+	<div>
+		<div class='logo'>
+			solid<span class='red'>red</span><span class='tld'>.co.uk</span>
+		</div>
 
-							if (body.className === "") {
-								body.className = "debug";
-							} else {
-								body.className = "";
-							}
-						});
-					};
-				}());
-
-			</script>
-
-			<link rel="stylesheet" href="panache.css">
-
-	</head>
-	<body>
 		<div>
+			<h1>Howard Yeend <a href="howard-yeend-cv.pdf">(CV.pdf)</a></h1>
 
-			<div class='logo'>
-				solid<span class='red'>red</span><span class='tld'>.co.uk</span>
-			</div>
+			<p>
+				Computer Scientist &amp; Philosopher.
+				<br><br>I also make websites.<br /><br />
+			</p>
 
-			<div>
-				<h1>Howard Yeend <a href="howard-yeend-cv.pdf">(CV.pdf)</a></h1>
+			<p>
+				Reach me on twitter <a href="https://twitter.com/citizen_of_now">@citizen_of_now</a><br>
+				or by email <a href="mailto:howard.yeend@gmail.com">howard.yeend@gmail.com</a>.
+			</p>
+		</div>
 
-				<p>
-					Computer Scientist &amp; Philosopher.
-					<br><br>I also make websites.<br /><br />
-				</p>
+		<div>
+			<h1>My Stuff</h1>
+			<ul>
+				<li>Feb 2014: <a href="londonjs2014.html">LondonJSConf talks writeup</a>.</li>
+				<li>My <a href="https://github.com/user24">GitHub</a>.</li>
+			</ul>
+		</div>
 
-                <p>
-                    Reach me on twitter <a href="https://twitter.com/citizen_of_now">@citizen_of_now</a><br>
-                    or by email <a href="mailto:howard.yeend@gmail.com">howard.yeend@gmail.com</a>.
-                </p>
-            </div>
+		<div>
+			<h1>Personal &amp; Pro Bono Work</h1>
+			<ul>
+				<li>
+					<a href="https://www.northamptoncastle.com" rel='external noopener noreferrer'>Friends Of Northampton Castle</a>.<br />
+					2008-present. Wordpress website, logo design, branding, journalism, social media &amp; technical consultancy.
+				</li>
+				<li>
+					<a href="https://www.fostp.org.uk" rel='external noopener noreferrer'>Friends Of St. Peter's</a><br />
+					2010-present. Conversion of 'CMS Made Simple' site to Wordpress.
+				</li>
+				<li>
+					<a href='fete2-magic.jpg' target='_blank'>Greenmead School Fete</a><br />
+					2019. Poster design for print &amp; web, and Friends group logo improvement.
+				</li>
+			</ul>
+		</div>
 
-			<div>
-                <h1>My Stuff</h1>
+		<div>
+			<h1>What's in a Name?</h1>
+			<p>
+				When I started building websites, before browsers had nice tools for developers, I found that an easy way to see the underlying structure was to put a thin red border on everything.
+			</p>
+			<p>
+				The way to do that is to add the following instruction:
+				<br><code>* {border: 1px solid red;}</code>
+				<br>So that's where solid red came from. Why red? Simple; it's the quickest colour to type.
+			</p>
+			<p>
+				I know you're dying to see what the page looks like with red borders so <a id="debug">here you go</a>. Pretty neat, eh?
+			</p>
+		</div>
 
-                <ul>
-                    <li>Feb 2014: <a href="londonjs2014.html">LondonJSConf talks writeup</a>.</li>
-                    <li>My <a href="https://github.com/user24">GitHub</a>.</li>
-                </ul>
-            </div>
-
-
-            <div>
-				<h1>Personal &amp; Pro Bono Work</h1>
-
-				<ul>
-					<li>
-						<a href="https://www.northamptoncastle.com" rel='external noopener noreferrer'>Friends Of Northampton Castle</a>.<br />
-            2008-present. Wordpress website, logo design, branding, journalism, social media &amp; technical consultancy.
-					</li>
-
-					<li>
-						<a href="https://www.fostp.org.uk" rel='external noopener noreferrer'>Friends Of St. Peter's</a><br />
-            2010-present. Conversion of 'CMS Made Simple' site to Wordpress.
-					</li>
-
-					<li>
-						<a href='fete2-magic.jpg' target='_blank'>Greenmead School Fete</a><br />
-            2019. Poster design for print &amp; web, and Friends group logo improvement.
-					</li>
-				</ul>
-            </div>
-
-            <div>
-				<h1>What's in a Name?</h1>
-
-				<p>
-					When I started building websites, before browsers had nice tools for developers, I found that an easy way to see the underlying structure was to put a thin red border on everything.
-				</p>
-				<p>
-					The way to do that is to add the following instruction:
-					<br><code>* {border: 1px solid red;}</code>
-					<br>So that's where solid red came from. Why red? Simple; it's the quickest colour to type.
-				</p>
-				<p>
-					I know you're dying to see what the page looks like with red borders so <a id="debug">here you go</a>. Pretty neat, eh?
-				</p>
-			</div>
-
-        </div>
-	</body>
+	</div>
+</body>
 </html>
