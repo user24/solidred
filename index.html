@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Shropshire web developer.">
 
+	<link rel="stylesheet" href="panache.css" disabled>
+
 	<script>
 		(function () {
 			"use strict";
@@ -22,6 +24,9 @@
 				var body = document.getElementsByTagName("body")[0];
 
 				on(document.getElementById("debug"), "click", function hasClicked() {
+					if (document.styleSheets.length === 0) {
+						alert("Sorry, this feature isn't available during CSS Naked Day, but you can clone the solidred repo from my github and run it locally if you want! Or just come back tomorrow :)");
+					}
 					if (body.className === "") {
 						body.className = "debug";
 					} else {
@@ -31,8 +36,6 @@
 			};
 		}());
 	</script>
-
-	<link rel="stylesheet" href="panache.css">
 
 </head>
 <body>
@@ -56,13 +59,19 @@
 		</div>
 
 		<div>
+			<h1>Why does this site look weird?</h1>
+			Because April 9th is CSS naked day! tldr: "The idea behind this event is to promote Web Standards. Plain and simple. This includes proper use of HTML, semantic markup, a good hierarchy structure".<br />
+			<a href='https://css-naked-day.github.io/'>Find out more here</a>.
+		</div>
+
+		<div>
 			<h1>My Stuff</h1>
 			<ul>
 				<li>Feb 2014: <a href="londonjs2014.html">LondonJSConf talks writeup</a>.</li>
 				<li>My <a href="https://github.com/user24">GitHub</a>.</li>
 			</ul>
 		</div>
-
+		
 		<div>
 			<h1>Personal &amp; Pro Bono Work</h1>
 			<ul>
